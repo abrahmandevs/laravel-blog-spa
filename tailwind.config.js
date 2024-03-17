@@ -6,7 +6,20 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+
+
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            scrollbarNone: {
+                /* For Webkit */
+                '::-webkit-scrollbar': {
+                  display: 'none',
+                },
+                /* For IE, Edge, and Firefox */
+                '-ms-overflow-style': 'none',
+                'scrollbar-width': 'none',
+              },
+        },
     },
     plugins: [
         require('@tailwindcss/typography'),

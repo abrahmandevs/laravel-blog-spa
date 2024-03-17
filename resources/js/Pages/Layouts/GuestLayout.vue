@@ -26,7 +26,7 @@ const props = defineProps({
 const status = ref([]);
 
 const navigation = [
-    { name: "Dashboard", href:"home", method:"get", current: true },
+    { name: "Dashboard", href:"/dashboard", method:"get", current: true },
     { name: "Home", href:"/", method:"get", current: false },
     { name: "Delete", href:"account/delete",  current: false },
     { name: "Register", href:"register", method:"get", current: false },

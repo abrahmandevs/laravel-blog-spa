@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Settings\Auth\SettingsAuthPasswordUpdate;
+use App\Http\Controllers\settings\profile\SettingsProfile;
 use App\Http\Controllers\Settings\Profile\SettingsProfileController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +27,17 @@ Route::post('/userRegister', [HomePageController::class, 'userRegister'])->name(
 
 //     });
 // });
+Route::middleware(['auth:sanctum', 'verified'])->group( function () {
+    Route::get('dashboard', function () {
+        // return redirect(auth()->user()->role . '/dashboard');
+        return Inertia::render('Layouts/AppDashboard');
+    })->name('dashboard');
+    
+    Route::controller(SettingsProfile::class)->group(function () {
+        Route::get('settings/profile','index')->name('profile');
+    });
 
-Route::controller(SettingsProfileController::class)->middleware(['auth','verified'])->group(function () {
-    Route::get('account/delete','accountDelete')->name('account.delete');
-    Route::post('account/delete','profileDeleteConfirm');
+
 });
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('auth/password',[SettingsAuthPasswordUpdate::class, 'passwordUpdate'])->name('password-update');

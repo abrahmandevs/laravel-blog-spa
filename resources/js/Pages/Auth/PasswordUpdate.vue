@@ -24,7 +24,6 @@ const auth = usePage()
 </script>
 <template>
 	<GuestLayout>
-        {{ auth }}
         <div class="container  mx-auto py-20 px-3 md:px-0">
             <form @submit.prevent="passwordUpdate" class="bg-white w-4/12 mx-auto rounded-md p-8 space-y-2" >
                 <div class="pt-3">

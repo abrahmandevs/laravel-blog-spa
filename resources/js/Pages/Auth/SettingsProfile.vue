@@ -25,8 +25,6 @@ const props = defineProps({
 </script>
 
 <template>
-    {{ form.password }}
-    {{ props }}
     <GuestLayout>
         <div class="col-span-5 xl:col-span-3">
             <div
